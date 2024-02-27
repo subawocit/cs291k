@@ -1,7 +1,9 @@
+cs291k code backup
+
 ## Model weights and codes
-clip backbone model weights: https://github.com/wangzhecheng/SkyScript
-clip backbone model code: https://github.com/mlfoundations/open_clip?tab=readme-ov-file
-vitdet (MAE) backbone model weights: https://github.com/sustainlab-group/SatMAE
+- clip backbone model weights: https://github.com/wangzhecheng/SkyScript
+- clip backbone model code: https://github.com/mlfoundations/open_clip
+- vitdet (MAE) backbone model weights: https://github.com/sustainlab-group/SatMAE
 
 ## Datasets:
 - landslides
