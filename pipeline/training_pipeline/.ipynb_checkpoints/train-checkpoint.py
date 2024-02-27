@@ -126,7 +126,8 @@ def parse_opt():
     parser.add_argument(
         '-uta', '--use-train-aug', 
         dest='use_train_aug', 
-        action='store_true',
+        # action='store_true',
+        type=bool,
         help='whether to use train augmentation, blur, gray, \
               brightness contrast, color jitter, random gamma \
               all at once'
@@ -154,7 +155,9 @@ def parse_opt():
     parser.add_argument(
         '-st', '--square-training',
         dest='square_training',
-        action='store_true',
+        # action='store_true',
+        default=True, 
+        type=bool, 
         help='Resize images to square shape instead of aspect ratio resizing \
               for single image training. For mosaic training, this resizes \
               single images to square shape first then puts them on a \
@@ -278,11 +281,14 @@ def main(args):
         train_dataset, BATCH_SIZE, NUM_WORKERS, batch_sampler=train_sampler
     )
     valid_loader = create_valid_loader(
-        valid_dataset, BATCH_SIZE, NUM_WORKERS, batch_sampler=valid_sampler
+        # valid_dataset, BATCH_SIZE, NUM_WORKERS, batch_sampler=valid_sampler
+        valid_dataset, BATCH_SIZE, NUM_WORKERS
     )
     for batch in train_loader:
         break
     print(batch[0][0].shape)
+
+
     # print(batch[0][0].shape, batch[0][1].shape)
     print(f"Number of training samples: {len(train_dataset)}")
     print(f"Number of validation samples: {len(valid_dataset)}\n")
@@ -374,6 +380,7 @@ def main(args):
         )
     except:
         print(model)
+        
     # Total parameters and trainable parameters.
     total_params = sum(p.numel() for p in model.parameters())
     print(f"{total_params:,} total parameters.")
@@ -411,6 +418,7 @@ def main(args):
     ct = 0
 
     for epoch in range(start_epochs, NUM_EPOCHS):
+            
         train_loss_hist.reset()
 
         _, batch_loss_list, \
@@ -457,29 +465,25 @@ def main(args):
         if stats[0] > best_map:
             best_map = stats[0]
             ct = 0
-            save_best_model(
-                model, 
-                val_map[-1], 
-                epoch, 
-                OUT_DIR,
-                data_configs,
-                args['model']
-            )
+            torch.save({
+                'epoch': 1,
+                'model_state_dict': model.state_dict(),
+                'data':  data_configs,
+                'model_name': args['model'],
+                }, f"{OUT_DIR}/best_model.pth")
         elif stats[1] > best_map_05:
             best_map_05 = stats[1]
             ct = 0
-            save_best_model(
-                model, 
-                val_map[-1], 
-                epoch, 
-                OUT_DIR,
-                data_configs,
-                args['model']
-            )
+            torch.save({
+                'epoch': 1,
+                'model_state_dict': model.state_dict(),
+                'data':  data_configs,
+                'model_name': args['model'],
+                }, f"{OUT_DIR}/best_model.pth")
         else: 
             ct += 1
             if ct > patience: 
-                print('end, best val_map', best_map)
+                print('End: best val_map and best_map_05', best_map, best_map_05)
                 break
             
 
@@ -577,20 +581,20 @@ def main(args):
         # Save the current epoch model state. This can be used 
         # to resume training. It saves model state dict, number of
         # epochs trained for, optimizer state dict, and loss function.
-        save_model(
-            epoch, 
-            model, 
-            optimizer, 
-            train_loss_list, 
-            train_loss_list_epoch,
-            val_map,
-            val_map_05,
-            OUT_DIR,
-            data_configs,
-            args['model']
-        )
+        # save_model(
+        #     epoch, 
+        #     model, 
+        #     optimizer, 
+        #     train_loss_list, 
+        #     train_loss_list_epoch,
+        #     val_map,
+        #     val_map_05,
+        #     OUT_DIR,
+        #     data_configs,
+        #     args['model']
+        # )
         # Save the model dictionary only for the current epoch.
-        save_model_state(model, OUT_DIR, data_configs, args['model'])
+        # save_model_state(model, OUT_DIR, data_configs, args['model'])
         # Save best model if the current mAP @0.5:0.95 IoU is
         # greater than the last hightest.
         # save_best_model(
