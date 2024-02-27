@@ -1,5 +1,13 @@
 from models import *
 
+def return_fasterrcnn_clip(
+    num_classes, pretrained=True, coco_model=False
+):
+    model = fasterrcnn_clip.create_model(
+        num_classes, pretrained, coco_model
+    )
+    return model
+
 def return_fasterrcnn_resnet50_fpn(
     num_classes, pretrained=True, coco_model=False
 ):
@@ -225,5 +233,7 @@ create_model = {
     'fasterrcnn_vitdet': return_fasterrcnn_vitdet,
     'fasterrcnn_vitdet_tiny': return_fasterrcnn_vitdet_tiny,
     'fasterrcnn_mobilevit_xxs': return_fasterrcnn_mobilevit_xxs,
-    'fasterrcnn_regnet_y_400mf': return_fasterrcnn_regnet_y_400mf
+    'fasterrcnn_regnet_y_400mf': return_fasterrcnn_regnet_y_400mf,
+    'fasterrcnn_clip': return_fasterrcnn_clip
+    
 }

@@ -1,0 +1,22 @@
+<annotation>
+<folder></folder>
+<filename>1987 Sichuan pre-earthquake_patch_8960_672.jpg</filename>
+<path>1987 Sichuan pre-earthquake_patch_8960_672.jpg</path>
+<source>
+<database></database>
+</source>
+<size>
+<width>224</width>
+<height>224</height>
+<depth>3</depth>
+</size>
+<segmented>0</segmented>
+<object>
+<name>landslides</name>
+<pose>Unspecified</pose>
+<truncated>0</truncated>
+<difficult>0</difficult>
+<occluded>0</occluded>
+<bndbox><xmin>6</xmin><xmax>28</xmax><ymin>27</ymin><ymax>44</ymax></bndbox>
+</object>
+</annotation>

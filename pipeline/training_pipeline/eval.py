@@ -7,6 +7,9 @@ python eval.py --data data_configs/voc.yaml --weights outputs/training/fasterrcn
 from datasets import (
     create_valid_dataset, create_valid_loader
 )
+from torch_utils.engine import (
+    train_one_epoch, evaluate, utils
+)
 from models.create_fasterrcnn_model import create_model
 from torch_utils import utils
 from torchmetrics.detection.mean_ap import MeanAveragePrecision
@@ -82,12 +85,16 @@ if __name__ == '__main__':
         data_configs = yaml.safe_load(file)
 
     # Validation settings and constants.
-    try: # Use test images if present.
-        VALID_DIR_IMAGES = data_configs['TEST_DIR_IMAGES']
-        VALID_DIR_LABELS = data_configs['TEST_DIR_LABELS']
-    except: # Else use the validation images.
-        VALID_DIR_IMAGES = data_configs['VALID_DIR_IMAGES']
-        VALID_DIR_LABELS = data_configs['VALID_DIR_LABELS']
+    # try: # Use test images if present.
+    #     VALID_DIR_IMAGES = data_configs['TEST_DIR_IMAGES']
+    #     VALID_DIR_LABELS = data_configs['TEST_DIR_LABELS']
+    # except: # Else use the validation images.
+    #     VALID_DIR_IMAGES = data_configs['VALID_DIR_IMAGES']
+    #     VALID_DIR_LABELS = data_configs['VALID_DIR_LABELS']
+
+    VALID_DIR_IMAGES = data_configs['VALID_DIR_IMAGES']
+    VALID_DIR_LABELS = data_configs['VALID_DIR_LABELS']
+        
     NUM_CLASSES = data_configs['NC']
     CLASSES = data_configs['CLASSES']
     NUM_WORKERS = args['workers']
@@ -116,6 +123,7 @@ if __name__ == '__main__':
 
     # Load weights.
     if args['weights'] is not None:
+        print('building models from',args['weights'] )
         model = create_model(num_classes=NUM_CLASSES, coco_model=False)
         checkpoint = torch.load(args['weights'], map_location=DEVICE)
         model.load_state_dict(checkpoint['model_state_dict'])
@@ -127,69 +135,82 @@ if __name__ == '__main__':
             square_training=args['square_training']
         )
     model.to(DEVICE).eval()
+    model.transform.min_size = (args['imgsz'], )
     
     valid_loader = create_valid_loader(valid_dataset, BATCH_SIZE, NUM_WORKERS)
 
-    @torch.inference_mode()
-    def evaluate(
-        model, 
-        data_loader, 
-        device, 
-        out_dir=None,
-        classes=None,
-        colors=None
-    ):
-        n_threads = torch.get_num_threads()
-        # FIXME remove this and make paste_masks_in_image run on the GPU
-        torch.set_num_threads(1)
-        cpu_device = torch.device("cpu")
-        model.eval()
-        metric_logger = utils.MetricLogger(delimiter="  ")
-        header = "Test:"
+    # @torch.inference_mode()
+    # def evaluate(
+    #     model, 
+    #     data_loader, 
+    #     device, 
+    #     out_dir=None,
+    #     classes=None,
+    #     colors=None
+    # ):
+    #     n_threads = torch.get_num_threads()
+    #     # FIXME remove this and make paste_masks_in_image run on the GPU
+    #     torch.set_num_threads(1)
+    #     cpu_device = torch.device("cpu")
+    #     model.eval()
+    #     metric_logger = utils.MetricLogger(delimiter="  ")
+    #     header = "Test:"
 
-        target = []
-        preds = []
-        counter = 0
-        for images, targets in tqdm(metric_logger.log_every(data_loader, 100, header), total=len(data_loader)):
-            counter += 1
-            images = list(img.to(device) for img in images)
+    #     target = []
+    #     preds = []
+    #     counter = 0
+    #     for images, targets in tqdm(metric_logger.log_every(data_loader, 100, header), total=len(data_loader)):
+    #         counter += 1
+    #         images = list(img.to(device) for img in images)
 
-            if torch.cuda.is_available():
-                torch.cuda.synchronize()
-            model_time = time.time()
-            with torch.no_grad():
-                outputs = model(images)
+    #         if torch.cuda.is_available():
+    #             torch.cuda.synchronize()
+    #         model_time = time.time()
+    #         with torch.no_grad():
+    #             outputs = model(images)
 
-            #####################################
-            for i in range(len(images)):
-                true_dict = dict()
-                preds_dict = dict()
-                true_dict['boxes'] = targets[i]['boxes'].detach().cpu()
-                true_dict['labels'] = targets[i]['labels'].detach().cpu()
-                preds_dict['boxes'] = outputs[i]['boxes'].detach().cpu()
-                preds_dict['scores'] = outputs[i]['scores'].detach().cpu()
-                preds_dict['labels'] = outputs[i]['labels'].detach().cpu()
-                preds.append(preds_dict)
-                target.append(true_dict)
-            #####################################
+    #         #####################################
+    #         for i in range(len(images)):
+    #             true_dict = dict()
+    #             preds_dict = dict()
+    #             true_dict['boxes'] = targets[i]['boxes'].detach().cpu()
+    #             true_dict['labels'] = targets[i]['labels'].detach().cpu()
+    #             preds_dict['boxes'] = outputs[i]['boxes'].detach().cpu()
+    #             preds_dict['scores'] = outputs[i]['scores'].detach().cpu()
+    #             preds_dict['labels'] = outputs[i]['labels'].detach().cpu()
+    #             preds.append(preds_dict)
+    #             target.append(true_dict)
+    #         #####################################
 
-            outputs = [{k: v.to(cpu_device) for k, v in t.items()} for t in outputs]
+    #         outputs = [{k: v.to(cpu_device) for k, v in t.items()} for t in outputs]
 
-        # gather the stats from all processes
-        metric_logger.synchronize_between_processes()
-        torch.set_num_threads(n_threads)
-        metric = MeanAveragePrecision(class_metrics=args['verbose'])
-        metric.update(preds, target)
-        metric_summary = metric.compute()
-        return metric_summary
+    #     # gather the stats from all processes
+    #     metric_logger.synchronize_between_processes()
+    #     torch.set_num_threads(n_threads)
+    #     metric = MeanAveragePrecision(class_metrics=args['verbose'])
+    #     metric.update(preds, target)
+    #     metric_summary = metric.compute()
+    #     return metric_summary
 
-    stats = evaluate(
-        model, 
-        valid_loader, 
-        device=DEVICE,
-        classes=CLASSES,
-    )
+    # stats = evaluate(
+    #     model, 
+    #     valid_loader, 
+    #     device=DEVICE,
+    #     classes=CLASSES,
+    # )
+    # @torch.inference_mode()
+    stats, _ = evaluate(
+            model, 
+            valid_loader, 
+            device=DEVICE,
+            save_valid_preds=False,
+            out_dir='/hdd/yuchen/pipeline/training_pipeline/outputs/',
+            classes=CLASSES,
+            colors=np.random.uniform(0, 1, size=(len(CLASSES), 3))
+        )
 
+    print(stats)
+    
     print('\n')
     pprint(stats)
     if args['verbose']:

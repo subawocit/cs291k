@@ -170,6 +170,7 @@ def main(args):
         model = build_model(num_classes=NUM_CLASSES, coco_model=False)
         model.load_state_dict(checkpoint['model_state_dict'])
     model.to(DEVICE).eval()
+    model.transform.min_size = (args['imgsz'], )
 
     COLORS = np.random.uniform(0, 255, size=(len(CLASSES), 3))
     if args['input'] == None:
@@ -183,6 +184,9 @@ def main(args):
     if DIR_TEST.split('/')[-1] == 'valid':
         VALID_DIR_IMAGES = os.path.normpath(data_configs['VALID_DIR_IMAGES'])
         VALID_DIR_LABELS = os.path.normpath(data_configs['VALID_DIR_LABELS'])
+    elif DIR_TEST.split('/')[-1] == 'train':
+        VALID_DIR_IMAGES = os.path.normpath(data_configs['TRAIN_DIR_IMAGES'])
+        VALID_DIR_LABELS = os.path.normpath(data_configs['TRAIN_DIR_LABELS'])
     else:
         VALID_DIR_IMAGES = os.path.normpath(data_configs['TEST_DIR_IMAGES'])
         VALID_DIR_LABELS = os.path.normpath(data_configs['TEST_DIR_LABELS'])
@@ -190,33 +194,34 @@ def main(args):
     CLASSES = data_configs['CLASSES']
     NUM_CLASSES = data_configs['NC']
     NUM_WORKERS = 1
-    BATCH_SIZE = 1
+    BATCH_SIZE = 8
     DEVICE = torch.device(args['device'])
     IMAGE_SIZE=args['imgsz']
     
-    valid_dataset = create_valid_dataset(
-        VALID_DIR_IMAGES, 
-        VALID_DIR_LABELS, 
-        IMAGE_SIZE, 
-        CLASSES,
-        square_training=args['square_img']
-    )
-    valid_sampler = SequentialSampler(valid_dataset)
-    valid_loader = create_valid_loader(
-        valid_dataset, BATCH_SIZE, NUM_WORKERS, batch_sampler=valid_sampler
-    )
+    # valid_dataset = create_valid_dataset(
+    #     VALID_DIR_IMAGES, 
+    #     VALID_DIR_LABELS, 
+    #     IMAGE_SIZE, 
+    #     CLASSES,
+    #     square_training=args['square_img']
+    # )
+    # valid_sampler = SequentialSampler(valid_dataset)
+    # valid_loader = create_valid_loader(
+    #     valid_dataset, BATCH_SIZE, NUM_WORKERS, batch_sampler=valid_sampler
+    # )
 
-    stats, val_pred_image = evaluate(
-            model, 
-            valid_loader, 
-            device=DEVICE,
-            save_valid_preds=False,
-            out_dir=OUT_DIR,
-            classes=CLASSES,
-            colors=COLORS
-        )
+    # stats, val_pred_image = evaluate(
+    #         model, 
+    #         valid_loader, 
+    #         device=DEVICE,
+    #         save_valid_preds=False,
+    #         out_dir=OUT_DIR,
+    #         classes=CLASSES,
+    #         colors=COLORS
+    #     )
 
-    print('val_map_05', stats[1], 'val_map', stats[0])
+
+    # print('val_map_05', stats[1], 'val_map', stats[0])
 
     # Define the detection threshold any detection having
     # score below this will be discarded.
