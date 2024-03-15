@@ -1,0 +1,38 @@
+<annotation>
+	<folder>data del</folder>
+	<filename>qxg016.jpg</filename>
+	<path>E:\study\data del\qxg016.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>512</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>landslide</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>161</xmin>
+			<ymin>210</ymin>
+			<xmax>358</xmax>
+			<ymax>341</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>landslide</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>164</xmin>
+			<ymin>399</ymin>
+			<xmax>390</xmax>
+			<ymax>502</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Data</folder>
+	<filename>qxg082.jpg</filename>
+	<path>E:\study\Data\qxg082.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>512</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>landslide</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>151</xmin>
+			<ymin>156</ymin>
+			<xmax>338</xmax>
+			<ymax>396</ymax>
+		</bndbox>
+	</object>
+</annotation>

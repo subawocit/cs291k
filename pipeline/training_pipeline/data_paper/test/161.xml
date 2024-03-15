@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>161.jpg</filename>
+	<path>D:\2code\Data\test_256\images\161.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>512</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>landslide</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>158</xmin>
+			<ymin>156</ymin>
+			<xmax>357</xmax>
+			<ymax>307</ymax>
+		</bndbox>
+	</object>
+</annotation>

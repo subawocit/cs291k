@@ -339,10 +339,29 @@ def create_model(num_classes=81, pretrained=True, coco_model=False):
         # ckpt = torch.utis('weights/mae_pretrain_vit_base.pth')
         # ckpt = torch.hub.load_state_dict_from_url('https://dl.fbaipublicfiles.com/mae/pretrain/mae_pretrain_vit_base.pth')
         # ckpt = torch.hub.load_state_dict_from_url('https://dl.fbaipublicfiles.com/mae/pretrain/mae_pretrain_vit_large.pth')
-        ckpt = torch.load('/hdd/yuchen/satdata/weights/fmow_pretrain.pth')
-        # ckpt = torch.load('/hdd/yuchen/satdata/weights/scalemae-vitlarge-800.pth')
         
-        net.load_state_dict(ckpt['model'], strict=False)
+        # ckpt = torch.load('/hdd/yuchen/satdata/weights/fmow_pretrain.pth')
+
+        from safetensors.torch import save_file, load_file
+        # loaded = load_file("/hdd/yuchen/satdata/weights/checkpoint-175200/model.safetensors")
+        loaded = load_file("/hdd/yuchen/satdata/weights/checkpoint-ViTLarge-L4Spretrained/model.safetensors")
+        
+        net.load_state_dict(loaded, strict=False)
+
+        # ckpt = torch.load('/hdd/yuchen/satdata/weights/scalemae-vitlarge-800.pth')
+        # net.load_state_dict(ckpt['model'], strict=False)
+    
+    
+    
+
+    # print(net)
+    
+    # model_layers = net.blocks
+    # new_layers = nn.ModuleList([layer for i, layer in enumerate(model_layers) if i not in range(20,24)])
+    # net.blocks = new_layers
+
+
+
 
     backbone = SimpleFeaturePyramid(
         net,

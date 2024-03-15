@@ -284,9 +284,9 @@ def main(args):
         # valid_dataset, BATCH_SIZE, NUM_WORKERS, batch_sampler=valid_sampler
         valid_dataset, BATCH_SIZE, NUM_WORKERS
     )
-    for batch in train_loader:
-        break
-    print(batch[0][0].shape)
+    # for batch in train_loader:
+    #     break
+    # print(batch[0][0].shape)
 
 
     # print(batch[0][0].shape, batch[0][1].shape)
@@ -412,10 +412,11 @@ def main(args):
 
     save_best_model = SaveBestModel()
 
-    best_map = 0
-    best_map_05 = 0
-    patience = 5
+    best_map = -np.inf
+    best_map_05 = -np.inf
+    patience = 10
     ct = 0
+
 
     for epoch in range(start_epochs, NUM_EPOCHS):
             

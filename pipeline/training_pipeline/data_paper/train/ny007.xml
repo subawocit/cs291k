@@ -1,0 +1,38 @@
+<annotation>
+	<folder>Dateset</folder>
+	<filename>ny007.jpg</filename>
+	<path>D:\1 Study\Dateset\ny007.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>512</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>landslide</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>190</xmin>
+			<ymin>186</ymin>
+			<xmax>316</xmax>
+			<ymax>332</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>landslide</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1</xmin>
+			<ymin>429</ymin>
+			<xmax>116</xmax>
+			<ymax>479</ymax>
+		</bndbox>
+	</object>
+</annotation>

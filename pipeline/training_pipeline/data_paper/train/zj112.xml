@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Data</folder>
+	<filename>zj112.jpg</filename>
+	<path>E:\study\Data\zj112.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>512</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>landslide</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>132</xmin>
+			<ymin>157</ymin>
+			<xmax>381</xmax>
+			<ymax>376</ymax>
+		</bndbox>
+	</object>
+</annotation>

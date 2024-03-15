@@ -150,6 +150,7 @@ class ViT(Backbone):
             x = blk(x)
 
         outputs = {self._out_features[0]: x.permute(0, 3, 1, 2)}
+        
         return outputs
 
 class SimpleFeaturePyramid(Backbone):

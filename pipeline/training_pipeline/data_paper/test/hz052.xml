@@ -1,0 +1,38 @@
+<annotation>
+	<folder>Dateset</folder>
+	<filename>hz052.jpg</filename>
+	<path>D:\1 Study\Dateset\hz052.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>512</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>landslide</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>61</xmin>
+			<ymin>247</ymin>
+			<xmax>132</xmax>
+			<ymax>371</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>landslide</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>205</xmin>
+			<ymin>250</ymin>
+			<xmax>295</xmax>
+			<ymax>392</ymax>
+		</bndbox>
+	</object>
+</annotation>

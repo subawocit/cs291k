@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>yx3.jpg</filename>
+	<path>D:\2code\Data\test\images\yx3.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>269</width>
+		<height>235</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>landslide</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>24</xmin>
+			<ymin>36</ymin>
+			<xmax>266</xmax>
+			<ymax>187</ymax>
+		</bndbox>
+	</object>
+</annotation>

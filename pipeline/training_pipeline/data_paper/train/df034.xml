@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Data</folder>
+	<filename>df034.jpg</filename>
+	<path>D:\2 code\Data Process\Data\df034.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>512</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>landslide</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>296</xmin>
+			<ymin>235</ymin>
+			<xmax>386</xmax>
+			<ymax>323</ymax>
+		</bndbox>
+	</object>
+</annotation>

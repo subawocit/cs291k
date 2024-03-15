@@ -1,0 +1,26 @@
+<annotation>
+	<folder>data del</folder>
+	<filename>hz099.jpg</filename>
+	<path>E:\study\data del\hz099.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>512</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>landslide</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>165</xmin>
+			<ymin>71</ymin>
+			<xmax>391</xmax>
+			<ymax>395</ymax>
+		</bndbox>
+	</object>
+</annotation>
