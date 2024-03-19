@@ -1,6 +1,6 @@
 # CS291K project code
 
-# Title: The Application of Pre-trained Models on Next-Generation Landslides Detection
+Title: The Application of Pre-trained Models on Next-Generation Landslides Detection
 
 ## Environment setup
 ```sh
