@@ -1,0 +1,20 @@
+2023-09-06 06:35:40,106 INFO    StreamThr :146793 [internal.py:wandb_internal():86] W&B internal server running at pid: 146793, started at: 2023-09-06 06:35:40.106266
+2023-09-06 06:35:40,107 DEBUG   HandlerThread:146793 [handler.py:handle_request():144] handle_request: status
+2023-09-06 06:35:40,110 INFO    WriterThread:146793 [datastore.py:open_for_write():85] open: /home/sovit/my_data/Data_Science/Projects/current_blogs/20231016_Pretraining_Faster_RCNN_ViT_Detection_Model_on_Pascal_VOC/fasterrcnn-pytorch-training-pipeline/wandb/run-20230906_063540-y8g4tjh9/run-y8g4tjh9.wandb
+2023-09-06 06:35:40,111 DEBUG   SenderThread:146793 [sender.py:send():379] send: header
+2023-09-06 06:35:40,111 DEBUG   SenderThread:146793 [sender.py:send():379] send: run
+2023-09-06 06:35:40,113 DEBUG   SenderThread:146793 [gitlib.py:_init_repo():53] git repository is invalid
+2023-09-06 06:35:42,500 DEBUG   HandlerThread:146793 [handler.py:handle_request():144] handle_request: shutdown
+2023-09-06 06:35:42,500 INFO    HandlerThread:146793 [handler.py:finish():857] shutting down handler
+2023-09-06 06:35:42,989 INFO    SenderThread:146793 [dir_watcher.py:__init__():211] watching files in: /home/sovit/my_data/Data_Science/Projects/current_blogs/20231016_Pretraining_Faster_RCNN_ViT_Detection_Model_on_Pascal_VOC/fasterrcnn-pytorch-training-pipeline/wandb/run-20230906_063540-y8g4tjh9/files
+2023-09-06 06:35:42,990 INFO    SenderThread:146793 [sender.py:_start_run_threads():1121] run started: y8g4tjh9 with start time 1693962340.109552
+2023-09-06 06:35:42,990 INFO    SenderThread:146793 [sender.py:finish():1552] shutting down sender
+2023-09-06 06:35:42,990 INFO    SenderThread:146793 [dir_watcher.py:finish():358] shutting down directory watcher
+2023-09-06 06:35:43,111 INFO    WriterThread:146793 [datastore.py:close():294] close: /home/sovit/my_data/Data_Science/Projects/current_blogs/20231016_Pretraining_Faster_RCNN_ViT_Detection_Model_on_Pascal_VOC/fasterrcnn-pytorch-training-pipeline/wandb/run-20230906_063540-y8g4tjh9/run-y8g4tjh9.wandb
+2023-09-06 06:35:43,990 INFO    SenderThread:146793 [dir_watcher.py:finish():388] scan: /home/sovit/my_data/Data_Science/Projects/current_blogs/20231016_Pretraining_Faster_RCNN_ViT_Detection_Model_on_Pascal_VOC/fasterrcnn-pytorch-training-pipeline/wandb/run-20230906_063540-y8g4tjh9/files
+2023-09-06 06:35:43,990 INFO    SenderThread:146793 [dir_watcher.py:finish():402] scan save: /home/sovit/my_data/Data_Science/Projects/current_blogs/20231016_Pretraining_Faster_RCNN_ViT_Detection_Model_on_Pascal_VOC/fasterrcnn-pytorch-training-pipeline/wandb/run-20230906_063540-y8g4tjh9/files/config.yaml config.yaml
+2023-09-06 06:35:43,990 INFO    SenderThread:146793 [file_pusher.py:finish():159] shutting down file pusher
+2023-09-06 06:35:43,990 INFO    SenderThread:146793 [file_pusher.py:join():164] waiting for file pusher
+2023-09-06 06:35:45,166 INFO    wandb-upload_0:146793 [upload_job.py:push():131] Uploaded file /home/sovit/my_data/Data_Science/Projects/current_blogs/20231016_Pretraining_Faster_RCNN_ViT_Detection_Model_on_Pascal_VOC/fasterrcnn-pytorch-training-pipeline/wandb/run-20230906_063540-y8g4tjh9/files/config.yaml
+2023-09-06 06:35:45,491 INFO    SenderThread:146793 [file_stream.py:finish():593] file stream finish called
+2023-09-06 06:35:45,939 INFO    SenderThread:146793 [file_stream.py:finish():597] file stream finish is done

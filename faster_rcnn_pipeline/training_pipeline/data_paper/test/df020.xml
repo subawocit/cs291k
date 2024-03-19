@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Dateset</folder>
+	<filename>df020.jpg</filename>
+	<path>D:\1 Study\Dateset\df020.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>512</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>landslide</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>162</xmin>
+			<ymin>145</ymin>
+			<xmax>335</xmax>
+			<ymax>354</ymax>
+		</bndbox>
+	</object>
+</annotation>

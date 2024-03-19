@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Dateset</folder>
+	<filename>hz047.jpg</filename>
+	<path>D:\1 Study\Dateset\hz047.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>512</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>landslide</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>199</xmin>
+			<ymin>188</ymin>
+			<xmax>347</xmax>
+			<ymax>279</ymax>
+		</bndbox>
+	</object>
+</annotation>

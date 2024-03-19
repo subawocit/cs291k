@@ -1,0 +1,26 @@
+<annotation>
+	<folder>data del</folder>
+	<filename>wn042.jpg</filename>
+	<path>E:\study\data del\wn042.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>512</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>landslide</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>164</xmin>
+			<ymin>118</ymin>
+			<xmax>367</xmax>
+			<ymax>359</ymax>
+		</bndbox>
+	</object>
+</annotation>

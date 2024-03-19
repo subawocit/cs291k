@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Data</folder>
+	<filename>hz005.jpg</filename>
+	<path>D:\2 code\Data Process\Data\hz005.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>512</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>landslide</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>211</xmin>
+			<ymin>205</ymin>
+			<xmax>323</xmax>
+			<ymax>301</ymax>
+		</bndbox>
+	</object>
+</annotation>

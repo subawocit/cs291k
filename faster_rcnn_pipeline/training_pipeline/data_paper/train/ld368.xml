@@ -1,0 +1,26 @@
+<annotation>
+	<folder>JPEGImages</folder>
+	<filename>鲁甸县_189_137.jpg</filename>
+	<path>D:\2code\Data\dataset(train)\JPEGImages\鲁甸县_189_137.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>512</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>landslide</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>2</xmin>
+			<ymin>161</ymin>
+			<xmax>96</xmax>
+			<ymax>319</ymax>
+		</bndbox>
+	</object>
+</annotation>

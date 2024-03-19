@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Dateset</folder>
+	<filename>zj033.jpg</filename>
+	<path>D:\1 Study\Dateset\zj033.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>512</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>landslide</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>4</xmin>
+			<ymin>3</ymin>
+			<xmax>402</xmax>
+			<ymax>285</ymax>
+		</bndbox>
+	</object>
+</annotation>
