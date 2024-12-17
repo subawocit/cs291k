@@ -1,16 +1,20 @@
 # Application of Pre-training Strategies on Landslides Detection
 
-CS291K (Machine Learning and Data Mining) course project
+*CS291K (Machine Learning and Data Mining) course project*
 
 ![plot](/figures/training_pipeline.png)
 
-In this project, we:
-- utilized a Faster R-CNN framework and applied transfer learning on two landslides datasets
-- explored various pre-training strategies (Image Classification, Knowledge Distillation, and Masked Autoencoder) to improve the model's landslides detection capability
+In this project, we investigated the application of pre-training strategies to improve landslides detection using deep learning. We employed the Faster R-CNN framework with transfer learning on satellite imagery datasets and explored the following pre-training strategies:
+- Image Classification
+- Knowledge Distillation
+- Masked Autoencoder (MAE)
 
-For required weights and datasets, please see: [Implementation Details Section](#implementation-details)
+By utilizing various pre-trained models and techniques, we achieved improvements in landslides bouding box detection on satellite images.
 
-For further reading, please see: [our final report](/final_report.pdf) 
+
+For environment setup and required weights and datasets, please see: [Implementation Details Section](#implementation-details)
+
+:mag_right: For further reading, please see: [our final report](/final_report.pdf) 
 
 # Introduction: Landslides Detection
 Landslide has affected about five million people worldwide.
@@ -57,10 +61,12 @@ We then selected the three best-performing architectures (i.e., ViT-Large, Swin-
 
 ![plot](/figures/Table2.jpg)
 
-Example prediction results:
+Example prediction results using our best-performing model (Swin-Base pre-trained using MAE):
+
 ![plot](/figures/prediction.png)
 
-
+# Conclusion
+ We presented a comprehensive approach to landslide detection using deep-learning techniques, focusing on *using pre-trained image encoder architectures within the Faster R-CNN framework*. Our findings highlight the importance of selecting appropriate pre-training strategies and backbone architectures for improving landslide detection performance. We found that the Swin-Base architecture, pre-trained using Masked Autoencoder (MAE) yielded the best performance in detecting landslide occurrences within satellite imagery. 
 
 # Implementation Details
 ## Environment Setup
