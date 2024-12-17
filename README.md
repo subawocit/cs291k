@@ -75,7 +75,7 @@ Sample prediction results from our best-performing model (Swin-Base pre-trained 
   Our findings highlighted the importance of selecting appropriate pre-training strategies and backbone architectures for improving landslide detection performance. 
 
 # About the Authors
-This project was part of the CS291K: Machine Learning and Data Mining course. Study design and code implementation were developed by me ([Yuchen Hou](https://github.com/subawocit)) and [Vihaan Akshaay Rajendiran](https://github.com/VihaanAkshaay).
+This project was part of the CS291K: Machine Learning and Data Mining course. Study design and code implementation were done by me ([Yuchen Hou](https://github.com/subawocit)) and [Vihaan Akshaay Rajendiran](https://github.com/VihaanAkshaay).
 
 
 # Implementation Details
