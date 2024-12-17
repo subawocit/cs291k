@@ -1,6 +1,6 @@
 # Application of Pre-training Strategies on Landslides Detection
 
-*CS291K (Machine Learning and Data Mining) course project*
+*Winter 2024 CS291K (Machine Learning and Data Mining) course project*
 
 ![plot](/figures/training_pipeline.png)
 
