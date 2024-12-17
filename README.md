@@ -25,7 +25,7 @@ Existing deep-learning approaches either require training from scratch or use na
 
 # Methods
 ## Stage 1: Pre-training
-- Objective: Pre-train image encoders using different stratgies
+- Objective: Pre-train image encoders using different strategies
 - Datasets:
     - [ImageNet-1K](https://www.image-net.org/), [fMoW-RGB](https://github.com/fMoW/dataset), and [Landslide4Sense](https://www.kaggle.com/datasets/tekbahadurkshetri/landslide4sense)
 - Architecture (image encoder):
@@ -51,11 +51,11 @@ Existing deep-learning approaches either require training from scratch or use na
 
 
 ## Evaluation
-We measured detection accuracy using the Intersection Over Union (IoU) metric. A detection is considered correct if IoU ≥ predefined threshold.
+A detection is considered correct if Intersection Over Union (IoU) ≥ predefined threshold.
 
 # Results
 
-We first investigated the performance of various backbone architectures on landslide object detection. The pre-training strategy was fixed to be ImageNet-1K image classification for all architectures. **We found the Swin-Base outperformed other architectures.**
+We first investigated the performance of various backbone architectures on landslide object detection. The pre-training strategy was fixed to be ImageNet-1K image classification for all architectures. **We found that the Swin-Base outperformed other architectures.**
 
 ![plot](/figures/Table1.jpg)
 
