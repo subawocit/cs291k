@@ -17,7 +17,7 @@ By utilizing various pre-trained models and techniques, we achieved improvements
 :mag_right: For further reading, please see: [our final report](/final_report.pdf) 
 
 # Introduction: Landslides Detection
-Landslide has affected about five million people worldwide.
+Landslide has affected about 5 million people worldwide.
 
 Existing deep-learning approaches either require training from scratch or use natural image pre-trained weights to initialize the model.
 
@@ -29,16 +29,18 @@ Existing deep-learning approaches either require training from scratch or use na
 - Datasets:
     - [ImageNet-1K](https://www.image-net.org/), [fMoW-RGB](https://github.com/fMoW/dataset), and [Landslide4Sense](https://www.kaggle.com/datasets/tekbahadurkshetri/landslide4sense)
 - Architecture (image encoder):
-    - CNN: ResNet-18 and EfficientNet-B0
-    - Transformer:  ViT and Swin Transformer
+    - CNN-based: ResNet-18 and EfficientNet-B0
+    - Transformer-based:  ViT and Swin Transformer
 - Image Encoder Pre-training Strategies
-    - **Image Classification**: train an image encoder with the ImageNet dataset to predict the corresponding image category given an input image. 
+    - **Image Classification**: 
+        - train an image encoder with the ImageNet dataset to predict the image category
     - **Knowledge Distillation**: "distilled" a more complex model into our smaller, task-specific image encoder:
-        1) load the ImageNet-pre-trained weights onto a predetermined teacher model; 
+        1) load the ImageNet-pre-trained weights onto a predetermined *teacher model*; 
         2) fine-tune the teacher model using the Landslide4Sense dataset on binary landslides image classification; 
         3) freeze the teacher model's weights; 
-        4) train a smaller student model to predict the teacher model's soft target probabilities along with the ground-truth hard labels
-    - **Maksed Autoencoder**: train an encoder that encodes masked images into tokens and maps them to high-dimensional space, and a decoder that learns from the encoded latent image features and reconstructs the original image
+        4) train a smaller *student model* to predict the teacher model's soft target probabilities along with the ground-truth hard labels
+    - **Maksed Autoencoder**: 
+        - mask input image patches and train an encoder-decoder framework to reconstruct the original image
 
 ## Stage 2: Fine-tuning
 - Objective: Landslide object bounding box detection
@@ -49,11 +51,11 @@ Existing deep-learning approaches either require training from scratch or use na
 
 
 ## Evaluation
-The Intersection Over Union (IoU) is calculated based on the overlapped and union areas between the predicted and the ground-truth bounding boxes. The result is considered a correct detection if the detection with IoU is larger than or equal to a predefined threshold.
+We measured detection accuracy using the Intersection Over Union (IoU) metric. A detection is considered correct if IoU ≥ predefined threshold.
 
 # Results
 
-We first investigated the performance of various backbone architectures on landslide object detection. The pre-training strategy was fixed to be image classification and the pre-trained dataset was ImageNet-1K for all architectures. **We found the Swin-Base outperformed other architectures.**
+We first investigated the performance of various backbone architectures on landslide object detection. The pre-training strategy was fixed to be ImageNet-1K image classification for all architectures. **We found the Swin-Base outperformed other architectures.**
 
 ![plot](/figures/Table1.jpg)
 
@@ -61,12 +63,20 @@ We then selected the three best-performing architectures (i.e., ViT-Large, Swin-
 
 ![plot](/figures/Table2.jpg)
 
-Example prediction results using our best-performing model (Swin-Base pre-trained using MAE):
+Sample prediction results from our best-performing model (Swin-Base pre-trained using MAE):
 
 ![plot](/figures/prediction.png)
 
 # Conclusion
- We presented a comprehensive approach to landslide detection using deep-learning techniques, focusing on *using pre-trained image encoder architectures within the Faster R-CNN framework*. Our findings highlight the importance of selecting appropriate pre-training strategies and backbone architectures for improving landslide detection performance. We found that the Swin-Base architecture, pre-trained using Masked Autoencoder (MAE) yielded the best performance in detecting landslide occurrences within satellite imagery. 
+ We presented a comprehensive approach to landslide detection using deep-learning techniques, focusing on *using pre-trained image encoder architectures within the Faster R-CNN framework*. 
+ 
+ We found that the Swin-Base architecture, pre-trained using Masked Autoencoder (MAE) yielded the best performance in detecting landslides within satellite imagery. 
+
+  Our findings highlighted the importance of selecting appropriate pre-training strategies and backbone architectures for improving landslide detection performance. 
+
+# About the Authors
+This project was part of the CS291K: Machine Learning and Data Mining course. Study design and code implementation were developed by me ([Yuchen Hou](https://github.com/subawocit)) and [Vihaan Akshaay Rajendiran](https://github.com/VihaanAkshaay).
+
 
 # Implementation Details
 ## Environment Setup
@@ -92,4 +102,4 @@ conda activate 291k
 - Swin-Transformer FPN neck: https://github.com/oloooooo/faster_rcnn_swin_transformer_detection/tree/maste
 - Knowledge distillation: https://huggingface.co/docs/transformers/en/tasks/knowledge_distillation_for_image_classification
 - CLIP image encoder: https://github.com/mlfoundations/open_clip
-  
+
