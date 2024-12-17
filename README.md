@@ -12,7 +12,7 @@ In this project, we investigated the application of pre-training strategies to i
 By utilizing various pre-trained models and techniques, we achieved improvements in landslides bouding box detection on satellite images.
 
 
-For environment setup and required weights and datasets, please see: [Implementation Details Section](#implementation-details)
+:bulb: For environment setup and required weights and datasets, please see: [Implementation Details Section](#implementation-details)
 
 :mag_right: For further reading, please see: [our final report](/final_report.pdf) 
 
