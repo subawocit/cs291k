@@ -9,19 +9,19 @@ In this project, we investigated the application of pre-training strategies to i
 - Knowledge Distillation
 - Masked Autoencoder (MAE)
 
-By utilizing various pre-trained models and techniques, we achieved improvements in landslides bouding box detection on satellite images.
+By utilizing various pre-trained models and techniques, we achieved improvements in landslides bounding box detection on satellite images.
 
 
-:bulb: For environment setup and required weights and datasets, please see: [Implementation Details Section](#implementation-details)
+:bulb: For environment setup, please see: [Implementation Details Section](#implementation-details)
 
 :mag_right: For further reading, please see: [our final report](/final_report.pdf) 
 
 # Introduction: Landslides Detection
-Landslide has affected about 5 million people worldwide.
+Landslides have affected about 5 million people worldwide.
 
 Existing deep-learning approaches either require training from scratch or use natural image pre-trained weights to initialize the model.
 
-**Although the use of different pre-trainnig strategies (e.g., MAE) with satellite imagery has been extensively studied, their effectiveness in landslide detection remains unexplored**. 
+**Although the use of different pre-training strategies (e.g., MAE) with satellite imagery has been extensively studied, their effectiveness in landslide detection remains unexplored**. 
 
 # Methods
 ## Stage 1: Pre-training
@@ -34,12 +34,12 @@ Existing deep-learning approaches either require training from scratch or use na
 - Image Encoder Pre-training Strategies
     - **Image Classification**: 
         - train an image encoder with the ImageNet dataset to predict the image category
-    - **Knowledge Distillation**: "distilled" a more complex model into our smaller, task-specific image encoder:
+    - **Knowledge Distillation**: distilled a more complex model into our smaller, task-specific image encoder:
         1) load the ImageNet-pre-trained weights onto a predetermined *teacher model*; 
         2) fine-tune the teacher model using the Landslide4Sense dataset on binary landslides image classification; 
         3) freeze the teacher model's weights; 
         4) train a smaller *student model* to predict the teacher model's soft target probabilities along with the ground-truth hard labels
-    - **Maksed Autoencoder**: 
+    - **Masked Autoencoder**: 
         - mask input image patches and train an encoder-decoder framework to reconstruct the original image
 
 ## Stage 2: Fine-tuning
@@ -92,14 +92,14 @@ conda activate 291k
 - Other weights (pretrained for this project): https://drive.google.com/drive/folders/1kzUATRd5Rzyav2yyE-Bcl7hGmHzPDLgL?usp=sharing 
 
 ## Datasets:
-- landslide4sense: https://www.kaggle.com/datasets/tekbahadurkshetri/landslide4sense
-- dataset used in paper "A novel Dynahead-Yolo neural network for the detection of landslides with variable proportions using remote sensing images": https://github.com/Abbott-max/dataset/tree/main
+- Landslide4sense: https://www.kaggle.com/datasets/tekbahadurkshetri/landslide4sense
+- Dataset used in paper "A novel Dynahead-Yolo neural network for the detection of landslides with variable proportions using remote sensing images": https://github.com/Abbott-max/dataset/tree/main
 
 
 ## Code adapted from:
 - Swin-MAE: https://github.com/Zian-Xu/Swin-MAE
 - General Faster-RCNN training pipeline: https://github.com/sovit-123/fasterrcnn-pytorch-training-pipeline
-- Swin-Transformer FPN neck: https://github.com/oloooooo/faster_rcnn_swin_transformer_detection/tree/maste
+- Swin-Transformer FPN neck: https://github.com/oloooooo/faster_rcnn_swin_transformer_detection/tree/master
 - Knowledge distillation: https://huggingface.co/docs/transformers/en/tasks/knowledge_distillation_for_image_classification
 - CLIP image encoder: https://github.com/mlfoundations/open_clip
 
