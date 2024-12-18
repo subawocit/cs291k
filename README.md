@@ -103,3 +103,8 @@ conda activate 291k
 - Knowledge distillation: https://huggingface.co/docs/transformers/en/tasks/knowledge_distillation_for_image_classification
 - CLIP image encoder: https://github.com/mlfoundations/open_clip
 
+# Let's Connect!
+
+:e-mail: **Yuchen Hou** |  [GitHub](https://github.com/subawocit) | [LinkedIn](https://www.linkedin.com/in/yuchen-hou-b95083205/) | [Webpage](https://bionicvisionlab.org/people/hou_yuchen/)
+
+Let's chat about related research ideas, potential collaborations, or just anything!
